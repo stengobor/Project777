@@ -1,10 +1,22 @@
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./pages/Layout";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Blogs from "./pages/Blogs";
 import "./App.css";
 
 function App() {
   return (
-    <div>
-      <h1 className="text-4xl font-bold underline">Hello World</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="blogs" element={<Blogs />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
